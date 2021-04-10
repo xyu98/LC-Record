@@ -28,21 +28,6 @@ public class Solution206 {
     }
 }
 
-class ListNode {
-    int val;        // 当前节点的内容
-    ListNode next;  // 下一个节点的指针
-    ListNode() {}   // 无参构造方法
-    ListNode(int val) { this.val = val; }  // 构造方法
-    ListNode(int val, ListNode next) { this.val = val; this.next = next; }  // 构造方法
-
-    @Override
-    public String toString() {
-        return "ListNode{" +
-                "val=" + val +
-                '}';
-    }
-}
-
 // 第1次提交，执行用时: 0 ms（超过100%），内存消耗: 38.2 MB MB（超过61.74%）
 class Solution206_1 {
     public ListNode reverseList(ListNode head) {
