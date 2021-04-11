@@ -2,7 +2,7 @@ import java.util.LinkedList;
 
 public class Solution206 {
     public static void main(String[] args) {
-        Solution206_1 s = new Solution206_1();
+        Solution206_2 s = new Solution206_2();
         // 题目中只给了ListNode，不能用现成的LinkedList链表的方法
         // 遍历只能用结点及其next指针
         // LinkedList<ListNode> l1 = new LinkedList<>();
@@ -31,7 +31,7 @@ public class Solution206 {
 // 第1次提交，执行用时: 0 ms（超过100%），内存消耗: 38.2 MB MB（超过61.74%）
 class Solution206_1 {
     public ListNode reverseList(ListNode head) {
-        ListNode current = head;
+        ListNode current = head;  // 【注】current完全可以优化掉（就是head）
         ListNode prev = head;
         ListNode nxt = head;
 
@@ -51,5 +51,19 @@ class Solution206_1 {
         head = current;
         head.next = prev;
         return head;
+    }
+}
+
+// 解法2：递归，空间复杂度最优（只需要两个ListNode变量）
+class Solution206_2 {
+    public ListNode reverseList(ListNode head) {
+        ListNode pre = null;
+        while (head != null) {
+            ListNode next = head.next;
+            head.next = pre;
+            pre = head;
+            head = next;
+        }
+        return pre;
     }
 }
