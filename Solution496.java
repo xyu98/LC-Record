@@ -12,7 +12,7 @@ public class Solution496 {
 }
 
 // 第1次提交，执行用时: 5 ms（超过82.77%），内存消耗: 38.6 MB（超过56.60%）
-// 最暴力的解法，采用for循环层层嵌套。用while可以使代码简洁（减小时间复杂度），但是没有改变时间空间复杂度。
+// 最暴力的解法，采用for循环层层嵌套。用while可以使代码简洁（减小时间复杂度），但是没有改变空间复杂度。
 class Solution496_1 {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
         int[] result = new int[nums1.length];
