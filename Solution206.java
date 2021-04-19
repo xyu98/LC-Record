@@ -69,6 +69,18 @@ class Solution206_2 {
     }
 }
 
+// 解3：递归 时间O(N)空间O(N)
+class Solution206_3 {
+    public ListNode reverseList(ListNode head) {
+        // 终止条件
+        if (head == null && head.next == null) return head;
+        ListNode p = reverseList(head.next); // 在这里执行到最底一层嵌套，然后开始返回
+        head.next.next = head;
+        head.next = null;
+        return p;
+    }
+}
+
 // 2021.04.12复盘
 class Solution206_revise1 {
     public ListNode reverseList(ListNode head) {
