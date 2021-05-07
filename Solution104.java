@@ -14,25 +14,24 @@ public class Solution104 {
     }
 }
 
-// 解1
+// 解1 DFS（递归），自顶向下
 // 时间O(n),n为节点个数；空间O(N)
 class Solution104_1 {
     int res;
     public int maxDepth(TreeNode root) {
-        int res = 0, depth = 1;
-        if (root == null) return res;
-        if (root.left == null && root.right == null) return depth;
-        getMaxDepth(root, depth);
-        return this.res;
+        int height = 1;
+        if (root == null) return 0;
+        dfsTopDown(root, height);
+        return res;
     }
 
-    public void getMaxDepth(TreeNode root, int depth) {
-        res = Math.max(res, depth);
-        if (root.left != null) {
-            getMaxDepth(root.left, depth + 1);
+    public void dfsTopDown(TreeNode node, int height) {
+        res = Math.max(res, height);
+        if (node.left != null) {
+            dfsTopDown(node.left, height + 1);
         }
-        if (root.right != null) {
-            getMaxDepth(root.right, depth + 1);
+        if (node.right != null) {
+            dfsTopDown(node.right, height + 1);
         }
     }
 }
@@ -50,3 +49,4 @@ class Solution104_2 {
         }
     }
 }
+
