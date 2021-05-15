@@ -1,3 +1,4 @@
+/*
 public class Solution236 {
     public static void main(String[] args) {
         Solution236_1 s = new Solution236_1();
@@ -14,8 +15,10 @@ public class Solution236 {
     }
 }
 
+// 要找深度最大的公共祖先，因此一定是Bottom Up，不能用Top Down（无法保证深度最大）
 class Solution236_1 {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        
+
     }
 }
+*/
