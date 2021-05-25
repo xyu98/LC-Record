@@ -15,3 +15,4 @@ BFS, DFS: 104
 - Search the Kth smallest/biggest element: 230  
 - Insert an element into a BST: 701  
 - Convert a BST to Cumulative Tree: 1038  
+- Delete an element of BST: 450  
