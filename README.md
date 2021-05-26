@@ -13,6 +13,7 @@ BFS, DFS: 104
 - BST verification: 98  
 - Search an element in a BST: 700  
 - Search the Kth smallest/biggest element: 230  
-- Insert an element into a BST: 701  
+- Insert an element into a BST: 701★  
 - Convert a BST to Cumulative Tree: 1038  
 - Delete an element of BST: 450★  
+- Complete tree nodes: 222★  
