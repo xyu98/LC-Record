@@ -1,15 +1,15 @@
 public class Solution27 {
     public static void main(String[] args) {
-        Solution27_2 s = new Solution27_2();
+        Solution27_3 s = new Solution27_3();
         int[] nums1 = {0, 1, 0, 3, 12};
         int[] nums2 = {0, 1, 2, 2, 3, 0, 4, 2};
         int[] nums3 = {3, 2, 2, 3};
-        int[] nums4 = {3, 3};
+        int[] nums4 = {4, 5};
         int[] nums5 = {};
         int count = 0;
-        count = s.removeElement(nums5, 3);
+        count = s.removeElement(nums2, 2);
         for (int k = 0; k < count; k++) {
-            System.out.println(nums5[k]);
+            System.out.println(nums2[k]);
         }
     }
 }
@@ -65,5 +65,30 @@ class Solution27_2 {
             return i;
         else
             return i + 1;
+    }
+}
+
+// 2021.6.30 review
+class Solution27_3 {
+    public int removeElement(int[] nums, int val) {
+        int i, j, res = 0;
+        for (i = 0; i < nums.length; i++) {
+            if (nums[i] == val) res++;
+        }
+        for (i = 0; i < nums.length - res; i++) {
+            if (nums[i] == val) {
+                j = i + 1;
+                while (nums[j] == val) j++;
+                swap(nums, i, j);
+            }
+        }
+        return nums.length - res;
+    }
+
+    public void swap(int[] nums, int index1, int index2) {
+        int temp;
+        temp = nums[index1];
+        nums[index1] = nums[index2];
+        nums[index2] = temp;
     }
 }
