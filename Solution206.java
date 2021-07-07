@@ -81,7 +81,7 @@ class Solution206_3 {
     }
 }
 
-// 2021.04.12复盘
+// 2021.04.12 revise
 class Solution206_revise1 {
     public ListNode reverseList(ListNode head) {
         ListNode prv = head;
@@ -100,5 +100,29 @@ class Solution206_revise1 {
         }
         nxt.next = head;
         return nxt;
+    }
+}
+
+// 2021.07.05 revise 常规法
+class Solution206_revise2 {
+    public ListNode reverseList(ListNode head) {
+        ListNode pre = null, nxt;
+        while (head != null) {
+            nxt = head.next;
+            head.next = pre;
+            pre = head;
+            head = nxt;
+        }
+        return pre;
+    }
+}
+// 递归（不熟）
+class Solution206_revise3 {
+    public ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode cur = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return cur;
     }
 }
