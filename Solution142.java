@@ -3,7 +3,7 @@ import java.time.chrono.MinguoDate;
 public class Solution142 {
 }
 
-public class Solution142_1 {
+class Solution142_1 {
     public ListNode detectCycle(ListNode head) {
         if (head == null || head.next == null) return null;
         ListNode slow = head, fast = head;
