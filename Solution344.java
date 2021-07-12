@@ -7,12 +7,23 @@ public class Solution344 {
     }
 }
 
+// 要求：O(1)的额外空间
+
+
 class Solution344_1 {
     public void reverseString(char[] s) {
-
+        if (s == null || s.length == 1) return;
+        int left = 0, right = s.length - 1;
+        char temp;
+        while (right > left) {
+            temp = s[left];
+            s[left] = s[right];
+            s[right] = temp;
+            left++;
+            right--;
+        }
     }
 }
-
 
 // 解2：递归，双指针的递归，每一对头尾指针作为一层，从数组的外面往里递，从里往外归（洋葱）
 class Solution344_2 {
