@@ -69,7 +69,7 @@ class Solution27_2 {
 }
 
 // 2021.6.30 review
-class Solution27_3 {
+class Solution27_review1 {
     public int removeElement(int[] nums, int val) {
         int i, j, res = 0;
         for (i = 0; i < nums.length; i++) {
@@ -90,5 +90,39 @@ class Solution27_3 {
         temp = nums[index1];
         nums[index1] = nums[index2];
         nums[index2] = temp;
+    }
+}
+
+class Solution27_3 {
+    public int removeElement(int[] nums, int val) {
+        int slow = 0, fast = 0;
+        int count = 0;
+        while (fast < nums.length) {
+            nums[slow] = nums[fast];
+            while (fast < nums.length && nums[fast] == val) {
+                fast++;
+                count++;
+                if (fast < nums.length) nums[slow] = nums[fast];
+            }
+            slow++;
+            fast++;
+        }
+        return nums.length - count;
+    }
+}
+
+// 最优版本
+class Solution27_4 {
+    public int removeElement(int[] nums, int val) {
+        // 快慢指针
+        int fastIndex = 0;
+        int slowIndex;
+        for (slowIndex = 0; fastIndex < nums.length; fastIndex++) {
+            if (nums[fastIndex] != val) {
+                nums[slowIndex] = nums[fastIndex];
+                slowIndex++;
+            }
+        }
+        return slowIndex;
     }
 }
