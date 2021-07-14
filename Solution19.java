@@ -1,7 +1,7 @@
 public class Solution19 {
 }
 
-class Solution {
+class Solution19_1 {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         if (head == null) return null;
         ListNode dummyHead = new ListNode(0);
