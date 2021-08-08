@@ -3,8 +3,8 @@ import java.util.Stack;
 
 public class Solution20 {
     public static void main(String[] args) {
-        Solution20_1 s1 = new Solution20_1();
-        String s = "]";
+        Solution20_revise1 s1 = new Solution20_revise1();
+        String s = "()[]{}";
         System.out.println(s1.isValid(s));
     }
 }
@@ -54,6 +54,28 @@ class Solution20_2 {
                 else return false;
             }
             else return false;
+        }
+        return stack.isEmpty();
+    }
+}
+
+class Solution20_revise1 {
+    public boolean isValid(String s) {
+        if (s.length() % 2 != 0) return false;
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '(' || s.charAt(i) == '[' || s.charAt(i) == '{') {
+                stack.push(s.charAt(i));
+            }
+            else if (s.charAt(i) == ')') {
+                if (stack.isEmpty() || stack.pop() != '(') return false;
+            }
+            else if (s.charAt(i) == ']') {
+                if (stack.isEmpty() || stack.pop() != '[') return false;
+            }
+            else {
+                if (stack.isEmpty() || stack.pop() != '{') return false;
+            }
         }
         return stack.isEmpty();
     }
